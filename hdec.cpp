@@ -28,8 +28,10 @@ int main(int argc, const char *argv[]) {
     cerr << "can't parse pubkey: " << argv[1] << endl;
     return -1;
   }
-
   mbedtls_mpi secret_key;
+  secret_key.s = 1;
+  secret_key.n = 0;
+  secret_key.p = NULL;
   mbedtls_mpi_read_binary(&secret_key, secret_key_buffer, HybridEncryption::SECRET_KEY_SIZE);
 
   try {

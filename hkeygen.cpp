@@ -12,6 +12,7 @@ int main() {
   HybridEncryption enc_ctx;
 
   mbedtls_mpi secret_key;
+  mbedtls_mpi_init(&secret_key);
   mbedtls_mpi_read_string(&secret_key, 16, DEBUG_SECRET_KEY);
 
   uint8_t secret_key_buffer[HybridEncryption::SECRET_KEY_SIZE];
